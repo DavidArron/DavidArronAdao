@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="bg-light">
+
+  <div class="container py-5">
+    <div id="productDetails" class="text-center">
+      <!-- Dynamic content goes here -->
+    </div>
+  </div>
+
+  <script>
+    const products = {
+      "msi-laptop": {
+        title: "MSI Laptop",
+        description: "High-performance laptop for gamers and creators.",
+        specs: `
+          <ul>
+            <li><span class="bullet">•</span> 15.6\" Full HD Display</li>
+            <li><span class="bullet">•</span> Intel Core i7 10th Gen Processor</li>
+            <li><span class="bullet">•</span> 16GB RAM</li>
+            <li><span class="bullet">•</span> NVIDIA GTX 1660 Ti GPU</li>
+            <li><span class="bullet">•</span> 512GB SSD Storage</li>
+            <li><span class="bullet">•</span> 1TB HDD Storage</li>
+            <li><span class="bullet">•</span> Windows 10 Home</li>
+          </ul>
+        `,
+        price: "₱59,999",
+        image: "images/image2.png"
+      },
+      "iphone-16-pro": {
+        title: "iPhone 16 Pro",
+        description: "Experience innovation in your hands.",
+        specs: `
+          <ul class="specs-list">
+            <li><span class="bullet">•</span> 6.7\" Super Retina XDR OLED Display</li>
+            <li><span class="bullet">•</span> A16 Bionic Chip</li>
+            <li><span class="bullet">•</span> Triple 12MP Camera System (Ultra Wide, Wide, Telephoto)</li>
+            <li><span class="bullet">•</span> 5G Connectivity</li>
+            <li><span class="bullet">•</span> 128GB Storage</li>
+            <li><span class="bullet">•</span> iOS 15</li>
+          </ul>
+        `,
+        price: "₱89,990",
+        image: "images/image3.webp"
+      },
+      "headphones": {
+        title: "Noise-Canceling Headphones",
+        description: "Immersive sound on the go.",
+        specs: `
+          <ul class="specs-list">
+            <li><span class="bullet">•</span> Active Noise Cancellation Technology</li>
+            <li><span class="bullet">•</span> 40mm Drivers for Deep Bass</li>
+            <li><span class="bullet">•</span> Bluetooth 5.0 Connectivity</li>
+            <li><span class="bullet">•</span> 20-hour Battery Life</li>
+            <li><span class="bullet">•</span> Built-in Microphone and Controls</li>
+            <li><span class="bullet">•</span> Comfortable Over-Ear Design</li>
+          </ul>
+        `,
+        price: "₱4,499",
+        image: "images/image4.webp"
+      },
+      "smart-watch": {
+        title: "Smart Watch",
+        description: "Stay connected from your wrist.",
+        specs: `
+          <ul class="specs-list">
+            <li><span class="bullet">•</span> 1.75\" AMOLED Display</li>
+            <li><span class="bullet">•</span> Heart Rate and Sleep Monitoring</li>
+            <li><span class="bullet">•</span> 7-day Battery Life</li>
+            <li><span class="bullet">•</span> IP68 Waterproof Rating</li>
+            <li><span class="bullet">•</span> Fitness Tracking (Step, Distance, Calories)</li>
+            <li><span class="bullet">•</span> Bluetooth 5.0 Connectivity</li>
+          </ul>
+        `,
+        price: "₱12,499",
+        image: "images/image5.webp"
+      },
+      "vivo-smartphone": {
+        title: "Vivo Smartphone",
+        description: "Smooth and stylish Android device.",
+        specs: `
+          <ul class="specs-list">
+            <li><span class="bullet">•</span> 6.44\" AMOLED Display</li>
+            <li><span class="bullet">•</span> MediaTek Dimensity 800U Processor</li>
+            <li><span class="bullet">•</span> 8GB RAM</li>
+            <li><span class="bullet">•</span> 128GB Storage</li>
+            <li><span class="bullet">•</span> 48MP Triple Camera System</li>
+            <li><span class="bullet">•</span> 4500mAh Battery</li>
+            <li><span class="bullet">•</span> 18W Fast Charging</li>
+          </ul>
+        `,
+        price: "₱17,999",
+        image: "images/image6.png"
+      },
+      "apple-ipad": {
+        title: "Apple iPad",
+        description: "Sleek design, powerful performance.",
+        specs: `
+          <ul class="specs-list">
+            <li><span class="bullet">•</span> 10.2\" Retina Display</li>
+            <li><span class="bullet">•</span> A13 Bionic Chip</li>
+            <li><span class="bullet">•</span> 32GB Storage</li>
+            <li><span class="bullet">•</span> 8MP Rear Camera</li>
+            <li><span class="bullet">•</span> 1.2MP Front Camera</li>
+            <li><span class="bullet">•</span> iPadOS</li>
+          </ul>
+        `,
+        price: "₱36,499",
+        image: "images/image7.jpg"
+      },
+      "android-x20": {
+        title: "Android X20",
+        description: "Power-packed phone with smooth performance.",
+        specs: `
+          <ul class="specs-list">
+            <li><span class="bullet">•</span> 6.5\" HD+ Display</li>
+            <li><span class="bullet">•</span> Snapdragon 695 Processor</li>
+            <li><span class="bullet">•</span> 6GB RAM</li>
+            <li><span class="bullet">•</span> 128GB Internal Storage</li>
+            <li><span class="bullet">•</span> Quad Camera Setup - 64MP Main</li>
+            <li><span class="bullet">•</span> 5000mAh Battery</li>
+          </ul>
+        `,
+        price: "₱13,999",
+        image: "images/image8.jpg"
+      },
+      "bluetooth-speaker": {
+        title: "Bluetooth Speaker",
+        description: "Portable speaker with rich stereo sound.",
+        specs: `
+          <ul class="specs-list">
+            <li><span class="bullet">•</span> 10W Output Power</li>
+            <li><span class="bullet">•</span> Bluetooth 5.0</li>
+            <li><span class="bullet">•</span> 12 Hours Playtime</li>
+            <li><span class="bullet">•</span> Water-Resistant Design</li>
+            <li><span class="bullet">•</span> USB-C Charging</li>
+          </ul>
+        `,
+        price: "₱1,499",
+        image: "images/image9.webp"
+      },
+      "fast-charger": {
+        title: "Fast Charger",
+        description: "Charge your devices in no time.",
+        specs: `
+          <ul class="specs-list">
+            <li><span class="bullet">•</span> 30W Power Delivery</li>
+            <li><span class="bullet">•</span> Compatible with iOS and Android</li>
+            <li><span class="bullet">•</span> Overcharge Protection</li>
+            <li><span class="bullet">•</span> Lightweight and Compact</li>
+            <li><span class="bullet">•</span> USB-C and USB-A Ports</li>
+          </ul>
+        `,
+        price: "₱899",
+        image: "images/images10.jpg"
+      },
+      "mechanical-keyboard": {
+        title: "Mechanical Keyboard",
+        description: "Tactile and responsive keys for gamers and coders.",
+        specs: `
+          <ul class="specs-list">
+            <li><span class="bullet">•</span> RGB Backlighting</li>
+            <li><span class="bullet">•</span> Blue Switches</li>
+            <li><span class="bullet">•</span> Anti-Ghosting Support</li>
+            <li><span class="bullet">•</span> Detachable USB-C Cable</li>
+            <li><span class="bullet">•</span> Compact 87-Key Layout</li>
+          </ul>
+        `,
+        price: "₱3,299",
+        image: "images/image11.webp"
+      }
+    };
+
+    const query = new URLSearchParams(window.location.search);
+    const productKey = query.get("product");
+    const product = products[productKey];
+    const details = document.getElementById("productDetails");
+
+    if (product) {
+      details.innerHTML = `
+        <h2 class="mb-4">${product.title}</h2>
+        <img src="${product.image}" alt="${product.title}" class="img-fluid mb-4" style="max-width: 400px;">
+        <p class="lead">${product.description}</p>
+        <h4>Specifications:</h4>
+        ${product.specs}
+        <p class="h4 text-success font-weight-bold">${product.price}</p>
+        <a href="index.html" class="btn btn-dark mt-3">Back to Products</a>
+      `;
+    } else {
+      details.innerHTML = `
+        <h2 class="text-danger">Product Not Found</h2>
+        <p>The product you're looking for doesn't exist.</p>
+        <a href="index.html" class="btn btn-secondary">Back to Home</a>
+      `;
+    }
+  </script>
+
+</body>
+</html>
